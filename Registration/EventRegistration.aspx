@@ -20,6 +20,13 @@
         .auto-style4 {
             height: 20px;
         }
+        .auto-style5 {
+            height: 20px;
+            width: 230px;
+        }
+        .auto-style6 {
+            width: 230px;
+        }
     </style>
 </head>
 <body>
@@ -29,43 +36,57 @@
                 <td class="auto-style3">
                     <asp:Label ID="LabelEvent" runat="server" Text="Event:"></asp:Label>
                 </td>
-                <td class="auto-style4">
-                    <asp:DropDownList ID="DropDownListEvent" runat="server" Height="16px" Width="337px">
+                <td class="auto-style5">
+                    <asp:DropDownList ID="DropDownListEvent" runat="server" Height="19px" Width="229px">
                         <asp:ListItem>Instroduction to ASP.NET 4.5</asp:ListItem>
                         <asp:ListItem>Instroduction to Windows Azure</asp:ListItem>
                         <asp:ListItem>Take off to .Net 4.0</asp:ListItem>
                     </asp:DropDownList>
                 </td>
+                <td class="auto-style4">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">
                     <asp:Label ID="LabelFirstName" runat="server" Text="FirstName"></asp:Label>
                 </td>
+                <td class="auto-style6">
+                    <asp:TextBox ID="TextBoxFirstName" runat="server" Height="18px" Width="219px"></asp:TextBox>
+                </td>
                 <td>
-                    <asp:TextBox ID="TextBoxFirstName" runat="server" Height="18px" Width="323px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxFirstName" ErrorMessage="First Name is required."></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">
                     <asp:Label ID="LabelLastName" runat="server" Text="Last Name:"></asp:Label>
                 </td>
+                <td class="auto-style6">
+                    <asp:TextBox ID="TextBoxLastName" runat="server" Width="221px"></asp:TextBox>
+                </td>
                 <td>
-                    <asp:TextBox ID="TextBoxLastName" runat="server" Width="324px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxLastName" ErrorMessage="Last Name is required."></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">
                     <asp:Label ID="LabelEmail" runat="server" Text="Email:"></asp:Label>
                 </td>
+                <td class="auto-style6">
+                    <asp:TextBox ID="TextBoxEmail" runat="server" Width="220px"></asp:TextBox>
+                </td>
                 <td>
-                    <asp:TextBox ID="TextBoxEmail" runat="server" Width="322px"></asp:TextBox>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TextBoxEmail" Display="Dynamic" ErrorMessage="Enter a vaild email." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="Email is required."></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
-                <td>
+                <td class="auto-style6">
                     <asp:Button ID="ButtonSubmit" runat="server" PostBackUrl="~/EventResult.aspx" Text="Submit" />
                 </td>
+                <td>
+                    &nbsp;</td>
             </tr>
         </table>
     </form>

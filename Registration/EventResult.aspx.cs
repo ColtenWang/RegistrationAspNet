@@ -13,9 +13,17 @@ namespace Registration
         {
             try
             {
-                RegistrationInfo ri = PreviousPage.RegistrationInfo;
-                LabelResult.Text = String.Format("{0} {1} selected the event {2}",
-                ri.FirstName, ri.LastName, ri.SelectedEvent);
+                if (!PreviousPage.IsValid)
+                {
+                    LabelResult.Text = "Error in previous page";
+                    return;
+                }
+                else
+                {
+                    RegistrationInfo ri = PreviousPage.RegistrationInfo;
+                    LabelResult.Text = String.Format("{0} {1} selected the event {2}",
+                    ri.FirstName, ri.LastName, ri.SelectedEvent);
+                }
             }
             catch
             {
